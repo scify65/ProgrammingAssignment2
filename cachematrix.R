@@ -3,7 +3,7 @@
 
 ## Creates a matrix and its inverse.
 
-makeCacheMatrix <- function(x = matrix()) {
+makeCacheMatrix <- function(x = matrix(),...) {
     m<-NULL
     set <- function(y) {
         x<<-y
@@ -13,12 +13,12 @@ makeCacheMatrix <- function(x = matrix()) {
     setinverse <-function(solve) m <<- solve
     getinverse <- function() m
     list(set=set, get=get,
-         setinverse=setinverse
+         setinverse=setinverse,
          getinverse=getinverse)
 }
 
 
-## Write a short comment describing this function
+## Checks to see if the matrix inverse is already cached. If not, it caches it.
 
 cacheSolve <- function(x, ...) {
     m<-x$getinverse()
